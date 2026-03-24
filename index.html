@@ -20,18 +20,32 @@
             </div>
         </div>
         <div class="window-body">
+            <p>Progress:</p>
+
             <div class="progress-indicator segmented">
                 <span class="progress-indicator-bar" style="width: 40%;" />
             </div>
-            <p>There's so much room for activities!</p>
-            <button>Remove</button>
-            <button>Completed</button>
-            <div class="field-row">
-                <label for="text17">Task</label>
-                <input id="text17" type="text" />
-            </div>
+           
+            <fieldset>
+                <legend>To-Do List</legend>
+                <div class="field-row">
+                    <input type="checkbox" id="example1">
+                    <label for="example1">Task is listed here.</label>
+                </div>
+                <div class="field-row">
+                    <input type="checkbox" id="example2">
+                    <label for="example2">This is a checkbox</label>
+                </div>
+                <div class="field-row">
+                    <input type="checkbox" id="example3">
+                    <label for="example3">This is a checkbox</label>
+                </div>
+            </fieldset>
+
+            <p>------------------------------------------------------------------------</p>
+            
             <div class="field-row-stacked" style="width: 200px">
-                <!-- <label for="text20">Additional notes</label> -->
+                <label for="text20">Enter to-do task here:</label>
                 <textarea id="text20" rows="8"></textarea>
             </div>
             <button>Add</button>
