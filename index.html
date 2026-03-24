@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/98.css"
+>
+</head>
+<body>
+    <div class="window" style="width: 300px">
+        <div class="title-bar">
+            <div class="title-bar-text">To-Do List</div>
+            <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="progress-indicator segmented">
+                <span class="progress-indicator-bar" style="width: 40%;" />
+            </div>
+            <p>There's so much room for activities!</p>
+            <button>Remove</button>
+            <button>Completed</button>
+            <div class="field-row">
+                <label for="text17">Task</label>
+                <input id="text17" type="text" />
+            </div>
+            <div class="field-row-stacked" style="width: 200px">
+                <!-- <label for="text20">Additional notes</label> -->
+                <textarea id="text20" rows="8"></textarea>
+            </div>
+            <button>Add</button>
+        </div>
+    </div>
+</body>
+</html>
