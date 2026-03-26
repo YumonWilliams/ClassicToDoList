@@ -1,10 +1,25 @@
 const addButton = document.getElementById("addButton");
 const clearButton = document.getElementById("clearButton");
 
+
 addButton.addEventListener("click", addEntry);
 clearButton.addEventListener("click", clearEntry);
 
 let listArray = [];
+
+let entryCount = 0;
+
+let confirmCount = 0;
+
+//Retrieve the amount of entries that are listed.
+function retrieveEntryCount() {
+
+};
+
+//Retrieve the amount of entries that have been checked. 
+function retrieveConfirmedCount() {
+
+};
 
 function textBox(){
     //Receives the text from the form. 
@@ -26,6 +41,8 @@ function displayArray() {
     container.innerHTML = '';
 
     for(let i = 0; i < listArray.length; i++){
+        
+
         container.innerHTML += `
             <div class="field-row">
                 <input type="checkbox" id="entry${i}">
@@ -49,7 +66,18 @@ function addEntry() {
     console.log(listArray)
 
     displayArray(); 
+
+    //These populate the dom properly. Now all I that is left to do is create the conditional statements and math needed to display the progress bar.
+    let entryCount =+ 1;
+    let confirmCount =+ 1;
     
+    const entryCountContainer = document.getElementById("entryCountContainer");
+    entryCountContainer.textContent = entryCount;
+    console.log(entryCount);
+
+    const confirmedCountContainer = document.getElementById("confirmedCountContainer");
+    confirmedCountContainer.textContent = confirmCount;
+    console.log(confirmCount);
 };
 
 
