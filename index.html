@@ -23,15 +23,20 @@
             <!-- Progress Bar-->
             <p>Your Progress:</p>
             <div class="progress-indicator segmented">
-                <span class="progress-indicator-bar" style="width: 0%;" />
+                <span class="progress-indicator-bar" style="width: 70%;" />
             </div>
            <!-- Where task entries are displayed -->
-            <fieldset>
+            <fieldset >
                 <legend>To-Do List</legend>
-                <div class="field-row">
+                <!--This needs to be create dynamically-->
+                <div id="myList">
+                    <!-- <div class="field-row">
                     <input type="checkbox" id="example1">
                     <label for="example1">Task is listed here.</label>
+                    </div> -->
                 </div>
+                
+                
             </fieldset>
 
             <p>------------------------------------------------------------------------</p>
@@ -48,49 +53,86 @@
         </div>
     </div>
     <script>
-        //Brings in buttons on canvas and stores them as variables. 
         const addButton = document.getElementById("addButton");
         const removeButton = document.getElementById("removeButton");
         const clearButton = document.getElementById("clearButton");
-
-
+        
         addButton.addEventListener("click", addEntry);
         removeButton.addEventListener("click", removeEntry);
 
-        let listArray = []
+        let listArray = [];
         
-        // Needs to take the user input from the form and append it to an array, storing the entry. The amount of entries will need to be kept track of, as it needs to provide the value for the progress bar. 
-
         function textBox(){
+            //Receives the text from the form. 
             const textInput = document.getElementById('textInput');
             textInput.value.trim();
             
-        }
+        };
 
         function arrayList(){
+            //Takes the value of the form and stores it into the array. 
             let newEntry = textInput.value.trim();
             listArray.push(newEntry);
-        }
+        };
 
+        //contains functions to display user's text input as entries in the to-do list. 
+        function displayArray() {
+            console.log("This function works!");
+
+            const container = document.getElementById('myList')
+
+            container.innerHTML = '';
+
+            for(let i = 0; i < listArray.length; i++){
+                const myList = document.createElement("div");
+
+                myList.textContent = listArray[i];
+                myList.classList.add("field-row")
+
+                // const inputBox = document.createElement("input")
+                // inputBox.
+
+                // const labelBox = document.createElement("label")
+
+                container.appendChild(myList);
+
+
+
+                console.log(listArray[i])
+            }
+        };
+        
         function addEntry() {
-            textBox()
-            arrayList()
+            //Calls the textbox function and the function that adds new entries to the list.
+            textBox();
+            arrayList();
+            //Clears the text box after selecting the add button.
             textInput.value = '';
+
+            //console log the array.
+            console.log(listArray)
+
+            displayArray(); 
+            
+        };
+
+     
+        // This needs to be able to remove an entry from the list of the array. Maybe assign the index to the checkbox somehow and remove when it is selected. 
+        function removeEntry() {
+            // Remove entry from the array. 
+            listArray.pop();
+            displayArray()
             console.log(listArray)
             
-        }
-
-        function removeEntry() {
-            console.log("Remove Button Clicked!");
-
-        }
+        };
 
         //Calculates the progress bars' value from the amount of completed tasks. The value will then need to dynamically update the css styling of the progress bar. 
         function progressBar() {
 
-        }
+        };
         
         console.log(listArray);
+        // displayArray(); 
 
     </script>
 </body>
