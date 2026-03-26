@@ -8,9 +8,10 @@
   rel="stylesheet"
   href="https://unpkg.com/98.css"
 >
+
 </head>
-<body>
-    <div class="window" style="width: 300px">
+<body style="background-image: url('./media/BAR.png');">
+    <div class="window" style="width: 100%">
         <div class="title-bar">
             <div class="title-bar-text">To-Do List</div>
             <div class="title-bar-controls">
@@ -23,7 +24,7 @@
             <!-- Progress Bar-->
             <p>Your Progress:</p>
             <div class="progress-indicator segmented">
-                <span class="progress-indicator-bar" style="width: 70%;" />
+                <span class="progress-indicator-bar" style="width: 100%;" />
             </div>
            <!-- Where task entries are displayed -->
             <fieldset >
@@ -38,102 +39,22 @@
                 
                 
             </fieldset>
+            <!--Dashes to seperate input section from the list-->
+           <div id="border" style="border-top-style:dashed; margin-top: 3%; margin-bottom: 2%;border-width: thin;">
 
-            <p>------------------------------------------------------------------------</p>
+           </div>
 
             <!--  Form to accept user input.-->
-            <div class="field-row-stacked" style="width: 200px">
+            <div class="field-row-stacked" style="width: 100%">
                 <label for="textInput">Enter TO-DO task here:</label>
-                <textarea id="textInput" rows="8"></textarea>
+                <textarea id="textInput" rows="4"></textarea>
             </div>
 
             <!-- Button to accept user input -->
             <button id="addButton">Add</button>
-            <button id="removeButton">REMOVE selected</button>
+            <button id="clearButton">CLEAR list</button>
         </div>
     </div>
-    <script>
-        const addButton = document.getElementById("addButton");
-        const removeButton = document.getElementById("removeButton");
-        const clearButton = document.getElementById("clearButton");
-        
-        addButton.addEventListener("click", addEntry);
-        removeButton.addEventListener("click", removeEntry);
-
-        let listArray = [];
-        
-        function textBox(){
-            //Receives the text from the form. 
-            const textInput = document.getElementById('textInput');
-            textInput.value.trim();
-            
-        };
-
-        function arrayList(){
-            //Takes the value of the form and stores it into the array. 
-            let newEntry = textInput.value.trim();
-            listArray.push(newEntry);
-        };
-
-        //contains functions to display user's text input as entries in the to-do list. 
-        function displayArray() {
-            console.log("This function works!");
-
-            const container = document.getElementById('myList')
-
-            container.innerHTML = '';
-
-            for(let i = 0; i < listArray.length; i++){
-                const myList = document.createElement("div");
-
-                myList.textContent = listArray[i];
-                myList.classList.add("field-row")
-
-                // const inputBox = document.createElement("input")
-                // inputBox.
-
-                // const labelBox = document.createElement("label")
-
-                container.appendChild(myList);
-
-
-
-                console.log(listArray[i])
-            }
-        };
-        
-        function addEntry() {
-            //Calls the textbox function and the function that adds new entries to the list.
-            textBox();
-            arrayList();
-            //Clears the text box after selecting the add button.
-            textInput.value = '';
-
-            //console log the array.
-            console.log(listArray)
-
-            displayArray(); 
-            
-        };
-
-     
-        // This needs to be able to remove an entry from the list of the array. Maybe assign the index to the checkbox somehow and remove when it is selected. 
-        function removeEntry() {
-            // Remove entry from the array. 
-            listArray.pop();
-            displayArray()
-            console.log(listArray)
-            
-        };
-
-        //Calculates the progress bars' value from the amount of completed tasks. The value will then need to dynamically update the css styling of the progress bar. 
-        function progressBar() {
-
-        };
-        
-        console.log(listArray);
-        // displayArray(); 
-
-    </script>
+    <script src = "JS/logic.js"></script>
 </body>
 </html>
